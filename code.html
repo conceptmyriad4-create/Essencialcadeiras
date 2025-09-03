@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Essencial Cadeiras - Venda e Manutenção de Cadeiras de Escritório</title>
+    <meta
+      name="description"
+      content="Empresa especializada em concerto, ajustes, venda de cadeiras novas e compra de usadas. Atendemos todo o Brasil. Localizada em Osasco, São Paulo."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+      }
+      .hero-bg {
+        background-color: #f8f9fa;
+      }
+      .btn-primary {
+        background-color: #007bff;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        transition: background-color 0.3s;
+      }
+      .btn-primary:hover {
+        background-color: #0056b3;
+      }
+      .btn-dark {
+        background-color: #003366;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        transition: background-color 0.3s;
+        font-weight: 600;
+      }
+      .btn-dark:hover {
+        background-color: #001f4d;
+      }
+      .service-card {
+        transition: transform 0.3s;
+      }
+      .service-card:hover {
+        transform: translateY(-5px);
+      }
+      .mobile-menu {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        .desktop-menu {
+          display: none;
+        }
+        .mobile-menu {
+          display: block;
+        }
+      }
+      /* Modal styles */
+      .modal-bg {
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+      .modal {
+        background-color: #f0f0f0;
+        max-width: 400px;
+        margin: 1.5rem auto;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      }
+      .modal-header {
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        color: #003366;
+      }
+      .modal-close {
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: #003366;
+        float: right;
+      }
+      .modal label {
+        display: block;
+        margin-bottom: 0.25rem;
+        font-weight: 600;
+        color: #003366;
+      }
+      .modal input,
+      .modal textarea {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 0.375rem;
+        font-size: 1rem;
+        font-family: inherit;
+      }
+      .modal textarea {
+        resize: vertical;
+      }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="bg-gray-900 text-white p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="text-2xl font-bold">Essencial Cadeiras</div>
+        <nav class="desktop-menu space-x-6">
+          <a href="#sobre" class="hover:text-blue-400">Sobre</a>
+          <a href="#servicos" class="hover:text-blue-400">Serviços</a>
+          <a href="#produtos" class="hover:text-blue-400">Produtos</a>
+          <a href="#contato" class="hover:text-blue-400">Contato</a>
+        </nav>
+        <div class="mobile-menu relative">
+          <button id="menu-toggle" class="text-white">Menu</button>
+          <nav
+            id="mobile-nav"
+            class="hidden absolute top-full left-0 bg-gray-900 w-full z-10"
+          >
+            <a href="#sobre" class="block p-4 hover:text-blue-400">Sobre</a>
+            <a href="#servicos" class="block p-4 hover:text-blue-400">Serviços</a>
+            <a href="#produtos" class="block p-4 hover:text-blue-400">Produtos</a>
+            <a href="#contato" class="block p-4 hover:text-blue-400">Contato</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg py-20">
+      <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 text-center md:text-left">
+          <h1 class="text-4xl font-bold text-gray-800 mb-4">
+            Cadeiras de Escritório de Alta Qualidade
+          </h1>
+          <p class="text-lg text-gray-600 mb-6">
+            Especializados em concerto, ajustes, venda de cadeiras novas e compra
+            de usadas. Atendemos todo o Brasil com padrões de excelência para
+            grandes marcas.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <a href="#contato" class="btn-primary">Entre em Contato</a>
+            <button
+              class="btn-dark"
+              id="open-orcamento-hero"
+              type="button"
+              aria-haspopup="dialog"
+            >
+              Solicite Orçamento
+            </button>
+          </div>
+          <p class="mt-4 font-semibold text-gray-700">Vamos até você!</p>
+        </div>
+        <div class="md:w-1/2 mt-8 md:mt-0">
+          <img
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a4a150c4-0207-4dd9-8dd9-df1bcdcd741b.png"
+            alt="Modern office environment with ergonomic chairs and workspaces in a clean Brazilian workshop setting, conveying reliability and professional service for corporate clients"
+            class="w-full rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre Nós -->
+    <section id="sobre" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">
+          Sobre a Essencial Cadeiras
+        </h2>
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-6 md:mb-0">
+            <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f6f28bab-5013-49b7-9cbd-ff92dad9c30f.png"
+              alt="Professional workshop in Osasco, Brazil, showing skilled technicians repairing high-end office furniture like chairs and desks, emphasizing trust and expertise for large brands"
+              class="w-full rounded-lg"
+            />
+          </div>
+          <div class="md:w-1/2 md:pl-8">
+            <p class="text-lg text-gray-700 mb-4">
+              Localizada em Osasco, São Paulo, a Essencial Cadeiras é uma empresa
+              de referência em manutenção e venda de móveis de escritório. Com
+              atendimento em todo o Brasil, garantimos serviços de alto padrão,
+              segurança e confiança para grandes empresas e marcas.
+            </p>
+            <p class="text-gray-600">
+              Oferecemos peças originais, ajustes precisos e soluções personalizadas
+              para cadeira de escritório, mesas e armários.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="py-20 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">
+          Nossos Serviços
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="service-card bg-white p-6 rounded-lg shadow-lg">
+            <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9d38b54d-f688-4f37-b944-9232e17039d6.png"
+              alt="Handyman adjusting office chair mechanisms in a professional service center in Brazil, symbolizing repair and maintenance"
+              class="w-full mb-4 rounded"
+            />
+            <h3 class="text-xl font-semibold mb-2">Concerto e Ajustes</h3>
+            <p class="text-gray-600">
+              Reparos especializados em cadeiras giratórias, fixas e móveis de
+              escritório, com uso de peças originais para durabilidade.
+            </p>
+          </div>
+          <div class="service-card bg-white p-6 rounded-lg shadow-lg">
+            <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9c22bd32-cc3e-4b19-832c-814f7b1ccfd7.png"
+              alt="High-quality new office chairs and desks being inspected for quality control in a trustworthy Brazilian company warehouse"
+              class="w-full mb-4 rounded"
+            />
+            <h3 class="text-xl font-semibold mb-2">Venda de Cadeiras Novas</h3>
+            <p class="text-gray-600">
+              Ampla variedade de cadeiras giratórias, fixas, ergonômicas e mesas de
+              escritório, com garantia de qualidade para empresas.
+            </p>
+          </div>
+          <div class="service-card bg-white p-6 rounded-lg shadow-lg">
+            <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7e4cbe03-23c7-4aaa-9055-228715fee2b2.png"
+              alt="Refurbished office chairs stacked neatly in a recycling and sales facility, promoting sustainable business practices in Osasco"
+              class="w-full mb-4 rounded"
+            />
+            <h3 class="text-xl font-semibold mb-2">Compra de Cadeiras Usadas</h3>
+            <p class="text-gray-600">
+              Avaliação e compra de cadeiras semi-novas ou usadas, oferecendo preço
+              justo e oportunidades de revenda sustentável.
+            </p>
+          </div>
+        </div>
+        <div class="mt-10 text-center">
+          <button
+            class="btn-dark"
+            id="open-orcamento-servicos"
+            type="button"
+            aria-haspopup="dialog"
+          >
+            Solicite Orçamento
+          </button>
+          <p class="mt-2 font-semibold text-gray-700">Vamos até você!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Produtos -->
+    <section id="produtos" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">
+          Produtos em Destaque
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f87b87a3-0f23-4178-84e2-390088abd139.png"
+              alt="Ergonomic swivel office chair with lumbar support, available in new condition from Essencial Cadeiras in Osasco, Brazil"
+              class="w-full mb-4 rounded"
+            />
+            <h3 class="text-lg font-semibold">Cadeiras Giratórias (Novas)</h3>
+            <p class="text-gray-600">
+              Modelos ergonômicos para máximo conforto no escritório.
+            </p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/69a6369b-9f91-4ee1-8a03-93b420e62b04.png"
+              alt="Fixed office chair with sturdy steel frame, perfect for meeting rooms, sold by reliable company in Brazil"
+              class="w-full mb-4 rounded"
+            />
+            <h3 class="text-lg font-semibold">Cadeiras Fixas (Novas)</h3>
+            <p class="text-gray-600">Para ambientes administrativos e salas de reunião.</p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/570b4f87-c26b-4998-80eb-7bb8c7bc8834.png"
+              alt="Semi-new office chairs in excellent condition, refurbished for durability in professional settings across Brazil"
+              class="w-full mb-4 rounded"
+            />
+            <h3 class="text-lg font-semibold">Cadeiras Semi Novas</h3>
+            <p class="text-gray-600">Ofertas especiais com qualidade garantida.</p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3513b19f-47d3-4fb1-b560-d90a93853ac8.png"
+              alt="Modern executive desk with drawers, designed for corporate offices, available from trusted furniture supplier"
+              class="w-full mb-4 rounded"
+            />
+            <h3 class="text-lg font-semibold">Mesas</h3>
+            <p class="text-gray-600">Mesas executivas e de escritório personalizáveis.</p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5e4cd9ff-502e-4230-a548-0df588409dcf.png"
+              alt="Metal filing cabinets and storage units, essential for office organization, sold by Essencial Cadeiras"
+              class="w-full mb-4 rounded"
+            />
+            <h3 class="text-lg font-semibold">Armários e Móveis de Aço</h3>
+            <p class="text-gray-600">Soluções de armazenamento resistentes e duráveis.</p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/097cdcfa-9642-42fc-a9f6-de5785b81526.png"
+              alt="Collection of steel office furniture including chairs and desks, representing the wide range of maintenance services"
+              class="w-full mb-4 rounded"
+            />
+            <h3 class="text-lg font-semibold">Peças e Manutenção</h3>
+            <p class="text-gray-600">Reposição de peças originais para todos os móveis.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-20 bg-gray-100">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-8 text-gray-800">Entre em Contato</h2>
+        <p class="text-lg text-gray-600 mb-6">
+          Atendemos todo o Brasil. Entre em contato para orçamentos e consultas.
+        </p>
+        <div class="text-red-600 font-semibold text-lg">Telefone: (11) 97336-4581</div>
+        <div class="text-blue-600 text-lg mt-2">Email: manutencaodecadeira@hotmail.com</div>
+        <div class="mt-6">
+          <button
+            class="btn-dark"
+            id="open-orcamento-contato"
+            type="button"
+            aria-haspopup="dialog"
+          >
+            Solicite Orçamento
+          </button>
+          <p class="mt-2 font-semibold text-gray-700">Vamos até você!</p>
+        </div>
+        <div class="mt-6">
+          <img
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e510607e-c11a-49b3-a3b5-9c4402490459.png"
+            alt="Maps location pin pointing to Osasco, Sao Paulo, Brazil, indicating the service area of Essencial Cadeiras covering the entire country"
+            class="mx-auto rounded"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10">
+      <div class="container mx-auto px-4 text-center">
+        <p>
+          © 2023 Essencial Cadeiras. Todos os direitos reservados. Osasco, São
+          Paulo - Atendemos todo o Brasil.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Modal Orçamento -->
+    <div
+      id="modal-orcamento-bg"
+      class="fixed inset-0 flex items-center justify-center
